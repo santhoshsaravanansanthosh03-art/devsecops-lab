@@ -1,0 +1,169 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+4 0 obj
+<< /Length 3679 >>
+stream
+0.060 0.250 0.450 rg BT /F2 24 Tf 1 0 0 1 54.0 730.0 Tm (DevSecOps Lab - Study Guide) Tj ET
+0.350 0.400 0.460 rg BT /F1 10 Tf 1 0 0 1 54.0 700.0 Tm (A practical guide to this Python CI/CD learning project) Tj ET
+0.080 0.280 0.480 rg BT /F2 17 Tf 1 0 0 1 54.0 672.0 Tm (1. What is this project?) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 647.0 Tm (This is a small learning project that demonstrates Continuous Integration \(CI\) and a basic) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 633.0 Tm (Continuous Delivery \(CD\) packaging step. The calculator app is intentionally simple so you can) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 619.0 Tm (focus on how automated checks work whenever code is pushed or a pull request is opened.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 602.0 Tm (The workflow runs a linter and unit tests first. Only if those checks pass does a second job) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 588.0 Tm (build a Docker image. GitHub Actions records each run, its result, and its duration.) Tj ET
+0.080 0.280 0.480 rg BT /F2 17 Tf 1 0 0 1 54.0 567.0 Tm (2. What each file does) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 542.0 Tm (- app.py - defines add\(a, b\) and divide\(a, b\). Division by zero raises ValueError.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 525.0 Tm (- test_app.py - contains three pytest checks: addition, normal division, and division by) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 511.0 Tm (zero.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 494.0 Tm (- requirements.txt - installs pytest for tests and flake8 for linting.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 477.0 Tm (- Dockerfile - packages the project in a Python 3.11 slim container. Its default command) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 463.0 Tm (runs pytest.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 446.0 Tm (- .github/workflows/python-ci.yml - tells GitHub Actions when and how to run lint, tests,) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 432.0 Tm (and the image build.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 415.0 Tm (- .gitignore - excludes Python cache files and virtual environments from Git.) Tj ET
+0.080 0.280 0.480 rg BT /F2 17 Tf 1 0 0 1 54.0 394.0 Tm (3. Pipeline at a glance) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 369.0 Tm (Push or pull request) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 356.0 Tm (        |) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 343.0 Tm (        v) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 330.0 Tm (build-test job: install -> flake8 -> pytest) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 317.0 Tm (        | only if successful) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 304.0 Tm (        v) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 291.0 Tm (docker-build job: docker build) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 278.0 Tm (        |) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 265.0 Tm (        v) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 252.0 Tm (GitHub Actions records status and duration) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 232.0 Tm (A failed lint or test stops the dependent Docker job. This avoids spending time packaging code) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 218.0 Tm (that has already failed a quality check.) Tj ET
+0.70 0.74 0.78 RG 54 43 m 558 43 l S
+0.35 0.40 0.46 rg BT /F1 8 Tf 1 0 0 1 54 29 Tm (DevSecOps Lab Study Guide) Tj ET
+0.35 0.40 0.46 rg BT /F1 8 Tf 1 0 0 1 540 29 Tm (1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 10 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 4151 >>
+stream
+0.080 0.280 0.480 rg BT /F2 17 Tf 1 0 0 1 54.0 726.0 Tm (4. How the workflow works) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 701.0 Tm (The workflow is stored at .github/workflows/python-ci.yml. GitHub recognizes YAML files in this) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 687.0 Tm (folder and runs the workflow for repository events.) Tj ET
+0.080 0.280 0.480 rg BT /F2 12 Tf 1 0 0 1 54.0 666.0 Tm (Triggers and permissions) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 646.0 Tm (on:) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 633.0 Tm (  push:) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 620.0 Tm (  pull_request:) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 607.0 Tm () Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 594.0 Tm (permissions:) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 581.0 Tm (  contents: read) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 561.0 Tm (push runs after commits are pushed. pull_request runs when a pull request is opened or updated.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 547.0 Tm (contents: read gives the workflow a read-only repository token; it does not need permission to) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 533.0 Tm (change source code.) Tj ET
+0.080 0.280 0.480 rg BT /F2 12 Tf 1 0 0 1 54.0 512.0 Tm (The build-test job) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 492.0 Tm (- Runs on a fresh Ubuntu runner hosted by GitHub.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 475.0 Tm (- Checks out the repository, sets up Python 3.11, and installs requirements.txt.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 458.0 Tm (- Runs python -m flake8 app.py test_app.py to check style and common errors.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 441.0 Tm (- Runs python -m pytest -q to execute the unit tests.) Tj ET
+0.080 0.280 0.480 rg BT /F2 12 Tf 1 0 0 1 54.0 420.0 Tm (The docker-build job) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 400.0 Tm (docker-build:) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 387.0 Tm (  needs: build-test) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 374.0 Tm (  steps:) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 361.0 Tm (    - uses: actions/checkout@v4) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 348.0 Tm (    - run: docker build --tag devsecops-lab:${{ github.sha }} .) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 328.0 Tm (needs: build-test enforces job order. The Docker job starts only after build-test succeeds. The) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 314.0 Tm (image is built on the runner, tagged with the commit SHA, and is not pushed to a container) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 300.0 Tm (registry.) Tj ET
+0.080 0.280 0.480 rg BT /F2 17 Tf 1 0 0 1 54.0 279.0 Tm (5. What Docker does here) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 254.0 Tm (A Docker image is a packaged filesystem and instructions for running software. The Dockerfile) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 240.0 Tm (starts from python:3.11-slim, sets /app as the working directory, installs the requirements,) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 226.0 Tm (copies in the project, and sets pytest as the default command.) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 209.0 Tm (docker build -t devsecops-lab .) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 196.0 Tm (docker run --rm devsecops-lab) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 176.0 Tm (The first command builds the image; the second runs its default test command and then removes) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 162.0 Tm (the container. Docker must be installed locally to run these commands. GitHub Actions can build) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 148.0 Tm (it on its hosted runner.) Tj ET
+0.70 0.74 0.78 RG 54 43 m 558 43 l S
+0.35 0.40 0.46 rg BT /F1 8 Tf 1 0 0 1 54 29 Tm (DevSecOps Lab Study Guide) Tj ET
+0.35 0.40 0.46 rg BT /F1 8 Tf 1 0 0 1 540 29 Tm (2) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 10 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 4139 >>
+stream
+0.080 0.280 0.480 rg BT /F2 17 Tf 1 0 0 1 54.0 726.0 Tm (6. Run the checks locally) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 701.0 Tm (python -m pip install -r requirements.txt) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 688.0 Tm (python -m flake8 app.py test_app.py) Tj ET
+0.120 0.220 0.310 rg BT /F3 8.5 Tf 1 0 0 1 63.0 675.0 Tm (python -m pytest -q) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 655.0 Tm (Expected test result: 3 passed. If lint or tests fail, fix the code, rerun the checks, then) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 641.0 Tm (commit and push. A new push starts another workflow run.) Tj ET
+0.080 0.280 0.480 rg BT /F2 17 Tf 1 0 0 1 54.0 620.0 Tm (7. Current scope and what comes later) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 595.0 Tm (- This is a demonstration, not a deployed web service. The Python functions are not exposed) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 581.0 Tm (through a web API.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 564.0 Tm (- The Docker image is built but not published to Docker Hub or another registry.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 547.0 Tm (- The Dockerfile defaults to running tests, so it is currently a test image rather than a) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 533.0 Tm (production app image.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 516.0 Tm (- Security scanning is a future extension. Typical additions include dependency) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 502.0 Tm (vulnerability checks, Bandit for Python security findings, and container image scanning.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 485.0 Tm (- A later deployment stage would need a real runtime command, a registry, deployment target,) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 471.0 Tm (and carefully scoped credentials.) Tj ET
+0.080 0.280 0.480 rg BT /F2 17 Tf 1 0 0 1 54.0 450.0 Tm (8. Key terms) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 425.0 Tm (- CI \(Continuous Integration\): automatically check code changes frequently.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 408.0 Tm (- CD \(Continuous Delivery/Deployment\): automatically prepare or release tested software.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 391.0 Tm (- Linting: static checks for style and common code problems; it does not prove the program) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 377.0 Tm (is correct.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 360.0 Tm (- Unit test: a small automated check of one part of a program.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 343.0 Tm (- Container image: a packaged template used to create containers.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 326.0 Tm (- Workflow/job/step: a GitHub Actions workflow contains jobs; each job contains steps.) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 309.0 Tm (- Dependency: an external package the project installs, such as pytest.) Tj ET
+0.080 0.280 0.480 rg BT /F2 17 Tf 1 0 0 1 54.0 288.0 Tm (9. Quick review) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 54.0 263.0 Tm (Try answering these without looking back:) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 246.0 Tm (- What must pass before the Docker build job starts?) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 229.0 Tm (- What does contents: read permit the workflow to do?) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 212.0 Tm (- Does this workflow publish the built image?) Tj ET
+0.120 0.160 0.220 rg BT /F1 10 Tf 1 0 0 1 62.0 195.0 Tm (- What happens when divide\(1, 0\) is called?) Tj ET
+0.080 0.280 0.480 rg BT /F2 10 Tf 1 0 0 1 54.0 178.0 Tm (Answers: lint and tests; read repository contents only; no, it only builds; the function raises) Tj ET
+0.080 0.280 0.480 rg BT /F2 10 Tf 1 0 0 1 54.0 164.0 Tm (ValueError.) Tj ET
+0.70 0.74 0.78 RG 54 43 m 558 43 l S
+0.35 0.40 0.46 rg BT /F1 8 Tf 1 0 0 1 54 29 Tm (DevSecOps Lab Study Guide) Tj ET
+0.35 0.40 0.46 rg BT /F1 8 Tf 1 0 0 1 540 29 Tm (3) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 10 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R] /Count 3 >>
+endobj
+11 0 obj
+<< /Type /Catalog /Pages 10 0 R >>
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000015 00000 n 
+0000000085 00000 n 
+0000000160 00000 n 
+0000000228 00000 n 
+0000003959 00000 n 
+0000004106 00000 n 
+0000008309 00000 n 
+0000008456 00000 n 
+0000012647 00000 n 
+0000012794 00000 n 
+0000012864 00000 n 
+trailer
+<< /Size 12 /Root 11 0 R >>
+startxref
+12915
+%%EOF
